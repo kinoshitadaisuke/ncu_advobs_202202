@@ -1,2 +1,4 @@
 # ncu_advobs_202202
-course material for the course "Advanced Astronomical Observations"
+course material for the course "Advanced Astronomical Observations" 
+offered at Institute of Astronomy, National Central University 
+at 2nd semester of academic year 2021.
