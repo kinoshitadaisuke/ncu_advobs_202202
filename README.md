@@ -4,6 +4,8 @@ offered at Institute of Astronomy, National Central University
 at 2nd semester of academic year 2021.
 
 Sessions
+
   session #01: "Basic Python Programming"
+  
   session #02: "Manipulating FITS files"
   
