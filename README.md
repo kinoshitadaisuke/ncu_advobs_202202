@@ -5,7 +5,7 @@ at 2nd semester of academic year 2021.
 
 Sessions
 
-  session #01: "Basic Python Programming"
+  session #01: "Basic Python programming"
   
   session #02: "Manipulating FITS files"
   
