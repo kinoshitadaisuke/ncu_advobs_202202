@@ -9,3 +9,5 @@ Sessions
   
   session #02: "Manipulating FITS files"
   
+  session #03: "Examining Bias Frames"
+  
