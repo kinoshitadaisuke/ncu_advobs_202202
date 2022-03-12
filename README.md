@@ -13,3 +13,5 @@ Sessions
   
   session #04: "Dark current"
   
+  session #05: "Making flatfield"
+  
