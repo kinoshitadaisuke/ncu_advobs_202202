@@ -9,5 +9,7 @@ Sessions
   
   session #02: "Manipulating FITS files"
   
-  session #03: "Examining Bias Frames"
+  session #03: "Examining bias frames"
+  
+  session #04: "Dark current"
   
