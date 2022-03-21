@@ -15,3 +15,5 @@ Sessions
   
   session #05: "Making flatfield"
   
+  session #06: "Using Ginga"
+  
