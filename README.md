@@ -17,3 +17,5 @@ Sessions
   
   session #06: "Using Ginga"
   
+  session #07: "Masked arrays"
+  
