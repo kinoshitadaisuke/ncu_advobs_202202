@@ -1,7 +1,7 @@
 #!/usr/pkg/bin/python3.9
 
 #
-# Time-stamp: <2022/03/31 22:58:44 (CST) daisuke>
+# Time-stamp: <2022/04/08 10:04:29 (CST) daisuke>
 #
 
 # importing argparse module
@@ -127,6 +127,7 @@ for filter_name in sorted (dict_target.keys () ):
     print ("  %s band data:"% filter_name)
     print ("    normalised flatfield = %s" % nflat)
     for file_fits in sorted (dict_target[filter_name].keys () ):
+        path_fits = pathlib.Path (file_fits)
         flatfielded = path_fits.stem + "f.fits"
         print ("      %s / %s" % (file_fits, nflat) )
         print ("          ==> %s" % flatfielded)
