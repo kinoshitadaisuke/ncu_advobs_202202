@@ -1,7 +1,7 @@
 #!/usr/pkg/bin/python3.9
 
 #
-# Time-stamp: <2022/04/14 15:30:26 (CST) daisuke>
+# Time-stamp: <2022/04/22 19:24:04 (CST) daisuke>
 #
 
 # importing argparse module
@@ -160,14 +160,14 @@ print ("# finished generating an aperture!")
 print ("# now, adding all the signal values within aperture...")
 
 # adding all the signal values within the aperture
-apphot_star \
-    = photutils.aperture.aperture_photometry (subframe, apphot_aperture, \
-                                              error=numpy.sqrt (subframe))
+apphot_star = photutils.aperture.aperture_photometry (subframe, apphot_aperture)
+
+# raw flux = star + sky
+raw_flux    = apphot_star['aperture_sum']
 
 # printing result
 print (apphot_star)
-print ("aperture sum       = %f ADU" % apphot_star['aperture_sum'])
-print ("aperture sum error = %f ADU" % apphot_star['aperture_sum_err'])
+print ("aperture sum         = %f ADU" % raw_flux)
 
 # printing status
 print ("# finished adding all the signal values within aperture!")
@@ -198,9 +198,8 @@ print ("# now, subtracting sky background...")
 # net flux = (total flux within aperture)
 #             - (skybg per pixel) * (number of pixels in aperture)
 npix         = apphot_aperture.area
-net_flux     = apphot_star['aperture_sum'] - skybg_per_pixel * npix
-net_flux_err = numpy.sqrt (apphot_star['aperture_sum_err']**2 \
-                           + (skybg_err_per_pixel * npix)**2)
+net_flux     = raw_flux - skybg_per_pixel * npix
+net_flux_err = numpy.sqrt (raw_flux + npix * skybg_err_per_pixel**2)
 
 # printing status
 print ("# finished subtracting sky background!")
@@ -210,12 +209,11 @@ print ("#")
 print ("# result of aperture photometry")
 print ("#")
 print ("# X, Y, APERTURE_RADIUS, OUTER_SKY_ANNULUS, INNER_SKY_ANNULUS,")
-print ("# NPIX_APERTURE, FLUX, FLUX_ERR, SKY_PER_PIX, SKY_ERR_PER_PIX,")
+print ("# NPIX_APERTURE, FLUX, SKY_PER_PIX, SKY_ERR_PER_PIX,")
 print ("# NET_FLUX, NET_FLUX_ERR")
 print ("#")
-print ("%f %f %f %f %f %f %f %f %f %f %f %f" \
+print ("%f %f %f %f %f %f %f %f %f %f %f" \
        % (x_centre, y_centre, aperture_radius_pixel, \
-          skyannulus_inner_pixel, skyannulus_outer_pixel, \
-          npix, apphot_star['aperture_sum'], apphot_star['aperture_sum_err'], \
-          skybg_per_pixel, skybg_err_per_pixel, \
+          skyannulus_inner_pixel, skyannulus_outer_pixel, npix, \
+          raw_flux, skybg_per_pixel, skybg_err_per_pixel, \
           net_flux, net_flux_err) )
