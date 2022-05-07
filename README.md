@@ -19,3 +19,17 @@ Sessions
   
   session #07: "Masked arrays"
   
+  session #08: "Basic CCD data reduction"
+  
+  session #09: "Basic CCD data reduction 2"
+  
+  session #10: "Centroid and PSF fitting"
+  
+  session #11: "Aperture photometry of synthetic stars"
+  
+  session #12: "Aperture photometry of real stars"
+  
+  session #13: "Atmospheric extinction"
+  
+  session #14: "Sky background brightness"
+  
